@@ -1,26 +1,30 @@
 <h1>Welcome {{user.firstName}}</h1>
 
-<h4>Your Stories</h4>
+<h4>Your Proposals</h4>
 
-{{#if stories}}
+{{#if proposals}}
   <table class="striped">
     <thead>
       <tr>
-        <th>Title</th>
+        <th>Image</th>
+        <th>URL</th>
         <th>Date</th>
         <th>Status</th>
+        <th>vote</th>
         <th></th>
       </tr>
     </thead>
     <tbody>
-      {{#each stories}}
+      {{#each proposals}}
       <tr>
-        <td><a href="/stories/show/{{id}}">{{title}}</a></td>
+        <td><img src="https://via.placeholder.com/75"></td>
+        <td><a href="/proposals/show/{{id}}">{{url}}</a></td>
         <td>{{formatDate data 'MMMM do YYYY'}}</td>
         <td><span class = "dash-satus">{{status}}</span></td>
+        <td>{{votes.[0].voteBody}}</td>
         <td>
-          <a class="btn left-align" href="/stories/edit/{{id}}"><i class="fa fa-pencil"></i> Edit</a>
-          <form action="/stories/{{id}}?_method=DELETE" method="post" id="delete-form">
+          <a class="btn left-align" href="/proposals/edit/{{id}}"><i class="fa fa-pencil"></i> Edit</a>
+          <form action="/proposals/{{id}}?_method=DELETE" method="post" id="delete-form">
             <input type="hidden" name="_method" value ="DELETE">
             <button type="submit" class="btn red"><i class="fa fa-remove"></i>Delete</button>
           </form>
@@ -30,5 +34,5 @@
     </tbody>
   </table>
 {{else}}
-  <p>You have not created any stories yet</p>
+  <p>You have not created any proposals yet</p>
 {{/if}}

@@ -1,7 +1,7 @@
 <nav class="grey darken-3">
   <div class="container">
     <div class="nav-wrapper">
-      <a href="/stories" class="brand-logo center">StoryBooks</a>
+      <a href="/proposals" class="brand-logo center">ByteRights</a>
       <a href="#" data-target="main-menu" class="sidenav-trigger show-on-large"><i class="fa fa-bars"></i></a>
 
       {{!-- Right Nav --}}
@@ -10,7 +10,7 @@
           <li><a href="/">Welcome {{user.firstName}}</a></li>
           <li><a href="/auth/logout"><i class="fa fa-sign-out"></i> Logout</a></li>
         {{else}}
-          <li><a href="/stories"><i class = "fa fa-book"></i> Public Stories</a></li>
+          <li><a href="/proposals"><i class = "fa fa-book"></i> Public Proposals</a></li>
         {{/if}}
       </ul>
 
@@ -27,11 +27,11 @@
           
         {{/if}}
 
-        <li><a href="/stories"><i class = "fa fa-book"></i>Public Stories</a></li>
+        <li><a href="/proposals"><i class = "fa fa-book"></i>Public Proposals</a></li>
         {{#if user}}
           <li class="divider"></li>
           <li><a href="/dashboard"><i class = "fa fa-cog"></i>Dashboard</a></li>
-          <li><a href="/stories/my"><i class = "fa fa-user"></i>My Stories</a></li>
+          <li><a href="/proposals/my"><i class = "fa fa-user"></i>My Proposals</a></li>
           <li><a href="/auth/logout"><i class = "fa fa-sign-out"></i>Logout</a></li>
         {{/if}}
       </ul>

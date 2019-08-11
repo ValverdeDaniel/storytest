@@ -1,3 +1,4 @@
+require('https').globalAgent.options.rejectUnauthorized = false;
 const express = require('express');
 const path = require('path');
 const exphbs= require('express-handlebars');
@@ -11,7 +12,7 @@ const passport = require('passport');
 
 //load Models
 require('./models/User');
-require('./models/Story');
+require('./models/Proposal');
 
 //passport config
 require('./config/passport')(passport);
@@ -19,7 +20,7 @@ require('./config/passport')(passport);
 //load routes
 const index = require('./routes/index');
 const auth = require('./routes/auth');
-const stories = require('./routes/stories');
+const proposals = require('./routes/proposals');
 
 //load keys file
 const keys = require('./config/keys');
@@ -89,7 +90,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 //use routes
 app.use('/', index);
 app.use('/auth', auth)
-app.use ('/stories', stories)
+app.use ('/proposals', proposals)
 
 const port = process.env.PORT || 5000;
 

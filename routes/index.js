@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
-const Story = mongoose.model('stories');
+const Proposal = mongoose.model('proposals');
 const {ensureAuthenticated, ensureGuest} = require('../helpers/auth');
 
 router.get('/', ensureGuest, (req, res) => {
@@ -9,10 +9,10 @@ router.get('/', ensureGuest, (req, res) => {
 });
 
 router.get('/dashboard', ensureAuthenticated, (req, res) => {
-  Story.find({user:req.user.id})
-  .then(stories => {
+  Proposal.find({user:req.user.id})
+  .then(proposals => {
     res.render('index/dashboard', {
-      stories: stories
+      proposals: proposals
     });  
   })
   

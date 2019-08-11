@@ -21,12 +21,12 @@ module.exports = {
   select: function(selected, options) {
     return options.fn(this).replace( new RegExp(' value=\"' + selected + '\"'), '$& selected="selected"').replace( new RegExp('>' + selected + '</option>'), ' selected="selected"$&');
   },
-  editIcon: function(storyUser, loggedUser, storyId, floating = true){
-    if(storyUser == loggedUser){
+  editIcon: function(proposalUser, loggedUser, proposalId, floating = true){
+    if(proposalUser == loggedUser){
       if(floating){
-        return `<a href="/stories/edit/${storyId}" class="btn-floating halfway-fab red"><i class="fa fa-pencil"></i></a>`;
+        return `<a href="/proposals/edit/${proposalId}" class="btn-floating halfway-fab red"><i class="fa fa-pencil"></i></a>`;
       } else {
-        return `<a href="/stories/edit/${storyId}"><i class="fa fa-pencil"></i></a>`;
+        return `<a href="/proposals/edit/${proposalId}"><i class="fa fa-pencil"></i></a>`;
       }
     } else {
       return '';
